@@ -136,20 +136,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					<style>
 
 
-#site-header { position: sticky; top: 0;
- z-index: 9999;
+#site-header { position: relative;
  background: white!important;
   transition:  padding 200ms ease;
   padding-top: 0;           }
 
 
 #site-header.is-sticky {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
   padding-top: 10px;
   background: transparent!important;
-}
-
-@media (max-width: 767px) {
-  #site-header { position: relative; }
 }
 
 
@@ -169,35 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.getElementById('hero');
   if (!header || !hero) return;
 
+  const contentAfterHero = hero.nextElementSibling;
   const mq = window.matchMedia('(max-width: 767px)');
-  let io = null;
 
   function setSticky(on){
     header.classList.toggle('is-sticky', on);
+    if (contentAfterHero){
+      contentAfterHero.style.paddingTop = on ? header.offsetHeight + 'px' : '';
+    }
   }
 
-  function enableSticky(){
-    if (io) io.disconnect();
-    io = new IntersectionObserver(([e]) => setSticky(!e.isIntersecting), { threshold: 0 });
-    io.observe(hero);
+  function checkSticky(){
+    if (mq.matches) { setSticky(false); return; }
+    setSticky(hero.getBoundingClientRect().bottom <= 0);
   }
 
-  function disableSticky(){
-    if (io) io.disconnect();
-    io = null;
-    setSticky(false);
-  }
+  window.addEventListener('scroll', checkSticky, { passive: true });
+  window.addEventListener('resize', checkSticky, { passive: true });
+  if (mq.addEventListener) mq.addEventListener('change', checkSticky);
+  else mq.addListener(checkSticky);
 
-  function apply(){
-    if (mq.matches) disableSticky();
-    else enableSticky();
-  }
-
-
-  if (mq.addEventListener) mq.addEventListener('change', apply);
-  else mq.addListener(apply);
-
-  apply();
+  checkSticky();
 });
 
 
