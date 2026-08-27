@@ -146,18 +146,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					<style>
 
 
-#site-header { position: relative;
- background: white!important;        
+#site-header { position: sticky; top: 0;
+ z-index: 9999;
+ background: white!important;
   transition:  padding 200ms ease;
   padding-top: 0;           }
 
 
 #site-header.is-sticky {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 9999;
   padding-top: 10px;
-  background: transparent!important;   
+  background: transparent!important;
+}
+
+@media (max-width: 767px) {
+  #site-header { position: relative; }
 }
 
 
@@ -177,15 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.getElementById('hero');
   if (!header || !hero) return;
 
-  const contentAfterHero = hero.nextElementSibling;
   const mq = window.matchMedia('(max-width: 767px)');
   let io = null;
 
   function setSticky(on){
     header.classList.toggle('is-sticky', on);
-    if (contentAfterHero){
-      contentAfterHero.style.paddingTop = on ? header.offsetHeight + 'px' : '';
-    }
   }
 
   function enableSticky(){
@@ -210,13 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
   else mq.addListener(apply);
 
   apply();
-
-
-  window.addEventListener('resize', () => {
-    if (header.classList.contains('is-sticky') && contentAfterHero){
-      contentAfterHero.style.paddingTop = header.offsetHeight + 'px';
-    }
-  }, { passive: true });
 });
 
 
