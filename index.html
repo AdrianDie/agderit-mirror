@@ -913,6 +913,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  var heroEl = document.getElementById('hero');
+  if (heroEl) {
+    try {
+      var heroSettings = JSON.parse(heroEl.getAttribute('data-settings') || '{}');
+      var videoLink = heroSettings.background_video_link;
+      var videoEl = heroEl.querySelector('.elementor-background-video-hosted');
+      if (videoLink && videoEl && !videoEl.getAttribute('src')) {
+        videoEl.setAttribute('src', videoLink);
+        videoEl.play().catch(function () {});
+      }
+    } catch (e) {}
+  }
+
   var swiperEl = document.querySelector('#testimonials-slider .swiper');
   if (swiperEl && window.Swiper) {
     swiperEl.querySelectorAll('img.swiper-lazy[data-src]').forEach(function (img) {
