@@ -848,15 +848,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.querySelectorAll('.elementskit-card-header').forEach(function (header) {
-    header.addEventListener('click', function () {
-      var item = header.parentElement;
-      var container = item.parentElement;
-      var wasActive = item.classList.contains('active');
-      Array.prototype.forEach.call(container.children, function (child) {
-        child.classList.remove('active');
-      });
-      if (!wasActive) item.classList.add('active');
+  document.querySelectorAll('.ekit-accordion--toggler').forEach(function (toggler) {
+    toggler.addEventListener('click', function (e) {
+      e.preventDefault();
+      var targetId = (toggler.getAttribute('data-target') || '').replace('#', '');
+      var target = targetId ? document.getElementById(targetId) : null;
+      if (!target) return;
+      var isOpen = target.classList.contains('show');
+      target.classList.toggle('show', !isOpen);
+      toggler.classList.toggle('collapsed', isOpen);
+      toggler.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 
