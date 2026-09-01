@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-5d92c1a e-flex e-con-boxed e-con e-parent agderit-contact-section" data-id="5d92c1a" data-element_type="container" data-e-type="container" style="padding:clamp(20px,4vw,40px) clamp(20px,4vw,50px) clamp(60px,8vw,100px);">
-					<div class="e-con-inner agderit-contact-columns" style="--display:flex;--flex-direction:row;--flex-wrap:nowrap;--row-gap:24px;--column-gap:24px;">
+					<div class="e-con-inner agderit-contact-columns">
 		<div class="elementor-element elementor-element-a46f8a2 e-con-full e-flex e-con e-child agderit-contact-left" data-id="a46f8a2" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-38c1706 elementor-widget elementor-widget-heading" data-id="38c1706" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;none&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
 					<h2 class="elementor-heading-title elementor-size-default">Ta kontakt med oss</h2>				</div>
@@ -460,9 +460,10 @@ Lørdag - Søndag: Stengt
 				</div>
 
 				<style>
-				.agderit-contact-columns{ display:flex; align-items:flex-start; gap:20px; }
+				.agderit-contact-section{ display:block !important; }
+				.agderit-contact-columns{ display:flex !important; flex-direction:row !important; align-items:flex-start !important; gap:48px !important; }
 				.agderit-contact-columns > .agderit-contact-left,
-				.agderit-contact-columns > .agderit-contact-right{ flex:1 1 0; min-width:0; }
+				.agderit-contact-columns > .agderit-contact-right{ flex:1 1 0 !important; min-width:0; margin:0 !important; padding:0 !important; }
 				@media(max-width:900px){ .agderit-contact-columns{ flex-direction:column !important; } }
 				.agderit-contact-section .elementor-heading-title{ font-family:"DM Serif Display", Georgia, serif; font-size:clamp(30px,4vw,44px); font-weight:700; color:#2C58F4; }
 				.agderit-contact-section .elementor-widget-text-editor{ font-family:"Figtree", sans-serif; font-size:16px; line-height:1.6; color:#232323; max-width:640px; margin-bottom:28px; }
