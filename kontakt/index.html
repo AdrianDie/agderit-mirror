@@ -410,6 +410,137 @@ Lørdag - Søndag: Stengt
 				</div>
 					</div>
 				</div>
+		<div class="elementor-element elementor-element-5d92c1a e-flex e-con-boxed e-con e-parent agderit-contact-section" data-id="5d92c1a" data-element_type="container" data-e-type="container" style="padding:clamp(20px,4vw,40px) clamp(20px,4vw,50px) clamp(60px,8vw,100px);">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-5d92c1b e-con-full e-flex e-con e-child" data-id="5d92c1b" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-5d92c1c elementor-widget elementor-widget-heading" data-id="5d92c1c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Send oss en henvendelse</h2>				</div>
+				<div class="elementor-element elementor-element-5d92c1d elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="5d92c1d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									Fyll ut skjemaet under, så tar vi kontakt med deg så raskt vi kan.								</div>
+				<div class="elementor-element elementor-element-5d92c1e elementor-widget elementor-widget-html" data-id="5d92c1e" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+
+				<form class="agderit-form" id="agderit-contact-form">
+					<input type="hidden" name="_subject" value="Ny henvendelse fra agderit.no" />
+					<input type="hidden" name="_template" value="table" />
+					<input type="hidden" name="_captcha" value="false" />
+					<div class="agderit-form-row">
+						<label class="agderit-field">
+							<span>Navn</span>
+							<input type="text" name="Navn" placeholder="Ola Nordmann" autocomplete="name" />
+						</label>
+						<label class="agderit-field">
+							<span>E-post <em>*</em></span>
+							<input type="email" name="Epost" placeholder="ola@eksempel.no" autocomplete="email" required />
+						</label>
+					</div>
+					<div class="agderit-form-row">
+						<label class="agderit-field">
+							<span>Telefon</span>
+							<input type="tel" name="Telefon" placeholder="123 45 678" autocomplete="tel" />
+						</label>
+						<label class="agderit-field">
+							<span>Bedrift</span>
+							<input type="text" name="Bedrift" placeholder="Bedriftens navn" autocomplete="organization" />
+						</label>
+					</div>
+					<label class="agderit-field agderit-field-full">
+						<span>Melding <em>*</em></span>
+						<textarea name="Melding" placeholder="Hva kan vi hjelpe deg med?" required></textarea>
+					</label>
+					<button type="submit" class="agderit-submit-btn" id="agderit-submit-btn">
+						Send henvendelse
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+					</button>
+					<p class="agderit-form-note">Vi bruker opplysningene kun til å svare deg. Ingen spam.</p>
+				</form>
+				<div id="agderit-form-success" class="agderit-form-status" style="display:none;">
+					<svg viewBox="0 0 48 48" fill="none" width="52" height="52"><circle cx="24" cy="24" r="22" stroke="#2C58F4" stroke-width="2.5"/><path d="M15 25l6 6 12-13" stroke="#2C58F4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					<h3>Takk for henvendelsen!</h3>
+					<p>Vi svarer deg så raskt vi kan.</p>
+				</div>
+				<div id="agderit-form-error" class="agderit-form-status" style="display:none;">
+					<h3>Noe gikk galt</h3>
+					<p>Skjemaet klarte ikke å sende. Prøv igjen, eller send oss en e-post direkte på <a href="mailto:post@agderit.no">post@agderit.no</a></p>
+				</div>
+
+				<style>
+				.agderit-contact-section .elementor-heading-title{ font-family:"DM Serif Display", Georgia, serif; font-size:clamp(30px,4vw,44px); font-weight:700; color:#2C58F4; }
+				.agderit-contact-section .elementor-widget-text-editor{ font-family:"Figtree", sans-serif; font-size:16px; line-height:1.6; color:#232323; max-width:640px; margin-bottom:28px; }
+				.agderit-contact-section .agderit-form{ background:#ffffff; border:1px solid #E7E9EF; border-radius:16px; padding:clamp(24px,4vw,40px); box-shadow:0 10px 30px rgba(15,23,42,0.06); max-width:760px; box-sizing:border-box; }
+				.agderit-contact-section .agderit-form-row{ display:flex; gap:20px; }
+				.agderit-contact-section .agderit-field{ display:flex; flex-direction:column; gap:6px; flex:1; margin-bottom:20px; font-family:"Figtree",sans-serif; }
+				.agderit-contact-section .agderit-field span{ font-size:14px; font-weight:600; color:#232323; }
+				.agderit-contact-section .agderit-field em{ color:#2C58F4; font-style:normal; }
+				.agderit-contact-section .agderit-field input,
+				.agderit-contact-section .agderit-field textarea{
+					font-family:"Figtree",sans-serif; font-size:15px; color:#232323;
+					border:1px solid #DADFE8; border-radius:10px; padding:12px 14px;
+					background:#F9FAFC; transition:border-color .15s ease, box-shadow .15s ease;
+					outline:none; width:100%; box-sizing:border-box;
+				}
+				.agderit-contact-section .agderit-field textarea{ min-height:130px; resize:vertical; }
+				.agderit-contact-section .agderit-field input:focus,
+				.agderit-contact-section .agderit-field textarea:focus{
+					border-color:#2C58F4; box-shadow:0 0 0 3px rgba(44,88,244,0.15); background:#ffffff;
+				}
+				.agderit-contact-section .agderit-field-full{ width:100%; }
+				.agderit-contact-section .agderit-submit-btn{
+					display:inline-flex; align-items:center; gap:10px; justify-content:center;
+					background:#2C58F4; color:#ffffff; border:0; border-radius:10px;
+					font-family:"Figtree",sans-serif; font-weight:600; font-size:15px;
+					padding:14px 28px; cursor:pointer; transition:background .15s ease;
+				}
+				.agderit-contact-section .agderit-submit-btn svg{ width:16px; height:16px; }
+				.agderit-contact-section .agderit-submit-btn:hover{ background:#1E44D6; }
+				.agderit-contact-section .agderit-submit-btn:focus-visible{ outline:3px solid rgba(44,88,244,0.35); outline-offset:2px; }
+				.agderit-contact-section .agderit-submit-btn:disabled{ opacity:.7; cursor:default; }
+				.agderit-contact-section .agderit-form-note{ font-family:"Figtree",sans-serif; font-size:13px; color:#6B7280; margin:14px 0 0; }
+				.agderit-contact-section .agderit-form-status{ text-align:center; padding:clamp(32px,5vw,56px) clamp(20px,3vw,32px); background:#ffffff; border:1px solid #E7E9EF; border-radius:16px; max-width:760px; box-sizing:border-box; }
+				.agderit-contact-section .agderit-form-status h3{ font-family:"DM Serif Display",Georgia,serif; font-size:1.5rem; color:#232323; margin:14px 0 8px; }
+				.agderit-contact-section .agderit-form-status p{ font-family:"Figtree",sans-serif; color:#5F6169; font-size:1rem; max-width:40ch; margin:0 auto; }
+				.agderit-contact-section .agderit-form-status a{ color:#2C58F4; }
+				@media(max-width:640px){ .agderit-contact-section .agderit-form-row{ flex-direction:column; gap:0; } }
+				</style>
+
+				<script>
+				document.getElementById('agderit-contact-form').addEventListener('submit', function(e) {
+					e.preventDefault();
+					var form = this;
+					var btn = document.getElementById('agderit-submit-btn');
+					btn.textContent = 'Sender…';
+					btn.disabled = true;
+					var data = new FormData(form);
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST', 'https://formsubmit.co/ajax/adrian.dietrichs@gmail.com');
+					xhr.setRequestHeader('Accept', 'application/json');
+					xhr.onload = function() {
+						try {
+							var res = JSON.parse(xhr.responseText);
+							if (String(res.success) === 'false') {
+								throw new Error(res.message || 'Feil');
+							}
+						} catch(ex) {
+							if (xhr.status < 200 || xhr.status >= 300) {
+								document.getElementById('agderit-contact-form').style.display = 'none';
+								document.getElementById('agderit-form-error').style.display = 'block';
+								return;
+							}
+						}
+						document.getElementById('agderit-contact-form').style.display = 'none';
+						document.getElementById('agderit-form-success').style.display = 'block';
+					};
+					xhr.onerror = function() {
+						document.getElementById('agderit-contact-form').style.display = 'none';
+						document.getElementById('agderit-form-error').style.display = 'block';
+					};
+					xhr.send(data);
+				});
+				</script>
+
+				</div>
+					</div>
+						</div>
+					</div>
 				</div>
 		
 		
