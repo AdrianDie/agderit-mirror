@@ -837,6 +837,7 @@ document.addEventListener('DOMContentLoaded', function () {
         menuDropdown.style.setProperty('max-height', 'calc(100vh - ' + rect.bottom + 'px)', 'important');
         menuDropdown.style.setProperty('overflow-y', 'auto', 'important');
         menuDropdown.style.setProperty('transform', 'none', 'important');
+        menuDropdown.style.setProperty('margin-top', '0', 'important');
         menuDropdown.setAttribute('aria-hidden', 'false');
         menuBtn.setAttribute('aria-expanded', 'true');
         if (openIcon) openIcon.style.display = 'none';
@@ -846,6 +847,7 @@ document.addEventListener('DOMContentLoaded', function () {
         menuDropdown.style.removeProperty('max-height');
         menuDropdown.style.removeProperty('overflow-y');
         menuDropdown.style.removeProperty('transform');
+        menuDropdown.style.removeProperty('margin-top');
         menuDropdown.setAttribute('aria-hidden', 'true');
         menuBtn.setAttribute('aria-expanded', 'false');
         if (openIcon) openIcon.style.display = 'block';
